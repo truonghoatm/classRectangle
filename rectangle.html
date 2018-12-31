@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+<p id="area" ></p>
+<p id="peri"></p>
+<canvas id="myCanvas" width="1000" height="500"></canvas>
+<script>
+    function Rectangle(x,y) {
+        this.length = x;
+        this.height = y;
+        this.getLength = function() {
+            return this.length;
+        }
+        this.getHeight = function () {
+            return this.height;
+        }
+        this.setLength = function (x) {
+            this.length = x;
+        }
+        this.setHeight = function (y) {
+            this.height = y;
+        }
+        this.getArea = function () {
+
+            return this.length *this.height;
+        }
+       this.getPerimeter = function() {
+           return (this.length + this.height)*2;
+        }
+        this.createRectangle = function () {
+            var ctx = document.getElementById("myCanvas").getContext("2d");
+            ctx.beginPath();
+            ctx.fillStyle = "#990000";
+            ctx.fillRect(10, 10, this.length, this.height);
+           // ctx.fill();
+
+        }
+    }
+    var rectangle = new Rectangle(200,100);
+    rectangle.setLength(150);
+    var x = rectangle.getLength();
+   // var y = rectangle.getHeight();
+   /* var x = rectangle.getLength();
+    var y = rectangle.getHeight();
+    */
+    document.getElementById("area").innerHTML= "Dien tich hinh chu nhat la:" + " "+ rectangle.getArea();
+    document.getElementById("peri").innerHTML= "Chu vi hinh chu nhat la:" + " "+ rectangle.getPerimeter();
+    rectangle.createRectangle();
+
+
+</script>
+</body>
+</html>
